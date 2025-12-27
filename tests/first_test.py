@@ -1,3 +1,5 @@
+import os
+
 from playwright.sync_api import Page, expect
 
 
@@ -9,24 +11,23 @@ def test_open_home_page(page: Page):
     expect(page.get_by_text("Log in", exact=True)).to_be_visible()
 
 
-def test_login_with_invalid_creds(page: Page):
+def test_login_with_invalid_creds(page: Page, configs: dict):
     open_home_page(page)
 
     expect(page.locator("[href*='sign_in'].login-item")).to_be_visible()
 
     page.get_by_text("Log in", exact=True).click()
 
-    login_user(page, email="EMAIL", password="WRONG_PASSWORD")
-
+    login_user(page, email=configs["email"], password="WRONG_PASSWORD")
 
     expect(page.locator("#content-desktop").get_by_text("Invalid Email or password.")).to_be_visible()
     expect(page.locator("#content-desktop .common-flash-info")).to_have_text("Invalid Email or password.")
 
 
-def test_search_project_in_company(page: Page):
-    page.goto("https://app.testomat.io/users/sign_in")
+def test_search_project_in_company(page: Page, configs: dict):
+    page.goto(configs["login_url"])
 
-    login_user(page, email="EMAIL", password="CORRECT_PASSWORD")
+    login_user(page, email=configs["email"], password=configs["password"])
 
     target_project = "python manufacture"
 
@@ -37,9 +38,9 @@ def test_search_project_in_company(page: Page):
     expect(page.locator("ul li h3", has_text=target_project)).to_be_visible()
 
 
-def test_should_be_possible_to_open_free_project(page: Page):
-    page.goto("https://app.testomat.io/users/sign_in")
-    login_user(page, email="EMAIL", password="CORRECT_PASSWORD")
+def test_should_be_possible_to_open_free_project(page: Page, configs: dict):
+    page.goto(configs["login_url"])
+    login_user(page, email=configs["email"], password=configs["password"])
     page.locator("#company_id").click()
     page.locator("#company_id").select_option("Free Projects")
 
@@ -56,7 +57,7 @@ def search_for_project(page: Page, target_project: str):
 
 
 def open_home_page(page: Page):
-    page.goto("https://testomat.io")
+    page.goto(os.getenv("BASE_URL"))
 
 
 def login_user(page: Page, email: str, password: str):
