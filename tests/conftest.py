@@ -38,3 +38,4 @@ def login(app: Application, configs: Config):
     app.login_page.open()
     app.login_page.is_loaded()
     app.login_page.login(configs.email, configs.password)
+    app.projects_page.verify_page_loaded()

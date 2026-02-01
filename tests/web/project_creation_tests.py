@@ -7,6 +7,11 @@ from src.web.Application import Application
 def test_new_project_creation(page: Page, login, app: Application):
     target_project_name = Faker().company()
 
+    app.projects_page.header.click_create()
+    (app.projects_page
+     .is_loaded()
+     .click_create())
+
     (app.new_projects_page
      .open()
      .is_loaded()
