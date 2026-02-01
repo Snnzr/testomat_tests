@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="048457bd-edf8-40f2-a423-adf891f80743" name="Changes" comment="MNFCT-3 &#10;implement adapter and mother object pattern &#10;refactored page using new approach">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/web/project_creation_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/web/project_creation_tests.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="MNFCT-3-page-object" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Snnzr&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Snnzr/testomat_tests.git&quot;,
+    &quot;accountId&quot;: &quot;8040ebfe-8d67-46b7-a8d6-408552cbcda2&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="37iO19KTkkF1QurkAgrGe3aJFPq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for tests.web.login_page_test.test_login_invalid.executor": "Run",
+    "Python tests.Python tests for tests.web.login_page_test.test_login_with_valid_creds.executor": "Run",
+    "Python tests.Python tests for tests.web.project_creation_tests.test_new_project_creation.executor": "Run",
+    "Python tests.Python tests in first_test.py.executor": "Run",
+    "Python tests.Python tests in login_page_test.py.executor": "Run",
+    "Python tests.Python tests in project_creation_tests.py.executor": "Run",
+    "Python.HomePage.executor": "Run",
+    "Python.NewProjectsPage.executor": "Run",
+    "Python.numbers_exp.executor": "Run",
+    "Python.string_exp.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "ai.playground.ignore.import.keys.banner.in.settings": "true",
+    "git-widget-placeholder": "MNFCT-4-fixtures",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "com.android.studio.ml.bot.mainConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\snihu\PycharmProjects\testomat_tests\src\web" />
+      <recent name="C:\Users\snihu\PycharmProjects\testomat_tests\src\web\components" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for tests.web.login_page_test.test_login_invalid">
+    <configuration name="Python tests for tests.web.login_page_test.test_login_invalid" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="testomat_tests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.web.login_page_test.test_login_invalid&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.web.login_page_test.test_login_with_valid_creds" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="testomat_tests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.web.login_page_test.test_login_with_valid_creds&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.web.project_creation_tests.test_new_project_creation" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="testomat_tests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.web.project_creation_tests.test_new_project_creation&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python tests.Python tests for tests.web.login_page_test.test_login_invalid" />
+      <item itemvalue="Python tests.Python tests for tests.web.login_page_test.test_login_with_valid_creds" />
+      <item itemvalue="Python tests.Python tests for tests.web.project_creation_tests.test_new_project_creation" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for tests.web.login_page_test.test_login_invalid" />
+        <item itemvalue="Python tests.Python tests for tests.web.project_creation_tests.test_new_project_creation" />
+        <item itemvalue="Python tests.Python tests for tests.web.login_page_test.test_login_with_valid_creds" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-3944b0c99280-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.127" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="MNFCT-2.1 &#10;added dataclass library for simplification of configs&#10;added library faker for random data generation">
+      <option name="closed" value="true" />
+      <created>1766873694908</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1766873694908</updated>
+    </task>
+    <task id="LOCAL-00002" summary="MNFCT-3 &#10;implemented basic example of page objects">
+      <option name="closed" value="true" />
+      <created>1767365584539</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1767365584539</updated>
+    </task>
+    <task id="LOCAL-00003" summary="MNFCT-3 &#10;vibe coded page objects for projects page and component">
+      <option name="closed" value="true" />
+      <created>1767370638460</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1767370638460</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="048457bd-edf8-40f2-a423-adf891f80743" name="Changes" comment="MNFCT-3 &#10;vibe coded page objects for projects page and component" />
+      <created>1767382211901</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1767382211901</updated>
+      <workItem from="1767382213135" duration="2633000" />
+      <workItem from="1768660710717" duration="23000" />
+    </task>
+    <task id="LOCAL-00004" summary="MNFCT-3 &#10;implement adapter and mother object pattern &#10;refactored page using new approach">
+      <option name="closed" value="true" />
+      <created>1767383587094</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1767383587094</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="MNFCT-2.1 &#10;added dataclass library for simplification of configs&#10;added library faker for random data generation" />
+    <MESSAGE value="MNFCT-3 &#10;implemented basic example of page objects" />
+    <MESSAGE value="MNFCT-3 &#10;vibe coded page objects for projects page and component" />
+    <MESSAGE value="MNFCT-3 &#10;implement adapter and mother object pattern &#10;refactored page using new approach" />
+    <option name="LAST_COMMIT_MESSAGE" value="MNFCT-3 &#10;implement adapter and mother object pattern &#10;refactored page using new approach" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/testomat_tests$pytest_in_snihu.coverage" NAME="pytest in snihu Coverage Results" MODIFIED="1766871677480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/testomat_tests$HomePage.coverage" NAME="HomePage Coverage Results" MODIFIED="1767019780354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/web/pages" />
+    <SUITE FILE_PATH="coverage/testomat_tests$.coverage" NAME=" Coverage Results" MODIFIED="1767383253170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/testomat_tests$string_exp.coverage" NAME="string_exp Coverage Results" MODIFIED="1766956647581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/data_type_experiments" />
+    <SUITE FILE_PATH="coverage/testomat_tests$numbers_exp.coverage" NAME="numbers_exp Coverage Results" MODIFIED="1766958691734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/data_type_experiments" />
+    <SUITE FILE_PATH="coverage/testomat_tests$NewProjectsPage.coverage" NAME="NewProjectsPage Coverage Results" MODIFIED="1767378799428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/web/pages" />
+  </component>
+</project>
