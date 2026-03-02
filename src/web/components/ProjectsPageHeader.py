@@ -7,7 +7,7 @@ class ProjectsPageHeader:
     def __init__(self, page: Page):
         self.page = page
 
-        self.page_title = page.locator('h2', has_text='Projects')
+        self.page_title = page.get_by_role('heading', name='Projects')
         self.company_selector = page.locator('#company_id')
         self.plan_badge = page.locator('.tooltip-project-plan')
 

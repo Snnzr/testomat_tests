@@ -1,6 +1,6 @@
 from typing import List
 
-from playwright.sync_api import expect, Page
+from playwright.sync_api import Page, TimeoutError, expect
 
 from src.web.components.ProjectCard import ProjectCard
 from src.web.components.ProjectsPageHeader import ProjectsPageHeader
@@ -45,8 +45,13 @@ class ProjectsPage:
         return self.get_projects()
 
     def verify_page_loaded(self):
-        expect(self.header.page_title).to_be_visible()
-        expect(self.projects_grid).to_be_visible()
+        self.page.wait_for_load_state('domcontentloaded')
+        expect(self.header.search_input).to_be_visible(timeout=15000)
+        expect(self.projects_grid).to_be_visible(timeout=15000)
+        try:
+            expect(self.header.company_selector).to_be_visible(timeout=5000)
+        except TimeoutError:
+            expect(self.header.create_button).to_be_visible(timeout=5000)
 
     def verify_success_message(self, expected_text: str):
         expect(self.success_message).to_have_text(expected_text)

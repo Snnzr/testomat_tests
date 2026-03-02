@@ -4,3 +4,6 @@
 .env
 .venv
 test-result
+__pycache__/
+*.pyc
+.pytest_cache/
