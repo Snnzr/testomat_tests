@@ -1,7 +1,7 @@
 import pytest
 from playwright.sync_api import Browser, BrowserContext, Page
-
 from src.web.application import Application
+
 from tests.support.browser_state import reset_page_state
 from tests.support.config import Config, load_config
 

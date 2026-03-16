@@ -36,7 +36,11 @@ class LoginPage:
             login_link = self.page.locator("[href*='sign_in'].login-item:visible")
             login_text = self.page.get_by_text("Log in", exact=True)
 
-            if sign_in_form.count() > 0 or login_link.count() > 0 or login_text.count() > 0:
+            if (
+                sign_in_form.count() > 0
+                or login_link.count() > 0
+                or login_text.count() > 0
+            ):
                 return
 
             raise AssertionError(

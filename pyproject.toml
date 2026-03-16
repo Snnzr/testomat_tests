@@ -1,0 +1,47 @@
+[project]
+name = "testomat-tests"
+version = "0.1.0"
+description = "UI test automation suite for Testomat"
+requires-python = ">=3.14"
+dependencies = [
+    "faker==39.0.0",
+    "playwright==1.57.0",
+    "pytest==9.0.2",
+    "pytest-playwright==0.7.2",
+    "python-dotenv==1.2.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.0,<0.12.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+preview = true
+target-version = "py314"
+line-length = 88
+src = ["src", "tests"]
+exclude = [
+    ".git",
+    ".idea",
+    ".pytest_cache",
+    ".uv-bin",
+    ".uv-venv",
+    ".venv",
+    "__pycache__",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"

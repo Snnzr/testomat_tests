@@ -1,7 +1,9 @@
 hello_world: str = "Hello World!"
 
+
 def print_hello():
     print(hello_world)
+
 
 def hello_to(name: str):
     print(f"Hello, {name}")
@@ -26,6 +28,7 @@ def check_protocol(actual_url: str):
         print(f"{actual_url} is correct")
     else:
         print(f"{actual_url} is insecure")
+
 
 check_protocol("https://www.google.com")
 check_protocol("http://www.google.com")

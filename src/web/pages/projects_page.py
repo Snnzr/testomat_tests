@@ -11,17 +11,17 @@ class ProjectsPage:
         self.page = page
         self.header = ProjectsPageHeader(page)
 
-        self.success_message = page.locator('.common-flash-success-right p')
-        self.info_message = page.locator('.common-flash-info-right p')
+        self.success_message = page.locator(".common-flash-success-right p")
+        self.info_message = page.locator(".common-flash-info-right p")
 
-        self.projects_grid = page.locator('#grid')
+        self.projects_grid = page.locator("#grid")
         self._project_cards = page.locator('#grid ul li a[href*="/projects/"]')
 
-        self.total_count = page.locator('.common-counter')
+        self.total_count = page.locator(".common-counter")
 
-    def navigate(self, url: str = '/projects'):
+    def navigate(self, url: str = "/projects"):
         self.page.goto(url)
-        self.page.wait_for_load_state('networkidle')
+        self.page.wait_for_load_state("networkidle")
 
     def get_success_message(self) -> str:
         return self.success_message.text_content().strip()
@@ -30,11 +30,15 @@ class ProjectsPage:
         return [ProjectCard(card) for card in self._project_cards.all()]
 
     def get_project_by_title(self, title: str) -> ProjectCard:
-        card = self._project_cards.filter(has=self.page.locator('h3', has_text=title)).first
+        card = self._project_cards.filter(
+            has=self.page.locator("h3", has_text=title)
+        ).first
         return ProjectCard(card)
 
     def assert_project_count(self, expected_count: int) -> None:
-        return expect(self._project_cards.filter(visible=True)).to_have_count(expected_count)
+        return expect(self._project_cards.filter(visible=True)).to_have_count(
+            expected_count
+        )
 
     def get_total_projects(self) -> int:
         return int(self.total_count.text_content())
@@ -45,7 +49,7 @@ class ProjectsPage:
         return self.get_projects()
 
     def verify_page_loaded(self):
-        self.page.wait_for_load_state('domcontentloaded')
+        self.page.wait_for_load_state("domcontentloaded")
         expect(self.header.search_input).to_be_visible(timeout=15000)
         expect(self.projects_grid).to_be_visible(timeout=15000)
         try:
@@ -61,6 +65,12 @@ class ProjectsPage:
 
     def assert_signed_in(self) -> None:
         expect(self.page.locator(".common-flash-success")).to_be_visible()
-        expect(self.page.locator(".common-flash-success")).to_have_text("Signed in successfully")
+        expect(self.page.locator(".common-flash-success")).to_have_text(
+            "Signed in successfully"
+        )
 
-        expect(self.page.locator(".common-flash-success", has_text="Signed in successfully")).to_be_visible()
+        expect(
+            self.page.locator(
+                ".common-flash-success", has_text="Signed in successfully"
+            )
+        ).to_be_visible()

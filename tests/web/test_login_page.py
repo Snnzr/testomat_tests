@@ -1,9 +1,9 @@
 import pytest
 from playwright.sync_api import Page
-
 from src.web.pages.home_page import HomePage
 from src.web.pages.login_page import LoginPage
 from src.web.pages.projects_page import ProjectsPage
+
 from tests.support.config import Config
 
 
@@ -26,7 +26,11 @@ def open_login_page(page: Page) -> LoginPage:
             id="eq_valid_credentials",
         ),
         pytest.param(
-            lambda config, faker: (faker.pystr(min_chars=8, max_chars=12), config.password, False),
+            lambda config, faker: (
+                faker.pystr(min_chars=8, max_chars=12),
+                config.password,
+                False,
+            ),
             id="eq_invalid_email_format",
         ),
         pytest.param(
@@ -46,7 +50,11 @@ def open_login_page(page: Page) -> LoginPage:
             id="bva_email_empty",
         ),
         pytest.param(
-            lambda config, faker: (f"{faker.pystr(min_chars=245, max_chars=245)}@x.com", config.password, False),
+            lambda config, faker: (
+                f"{faker.pystr(min_chars=245, max_chars=245)}@x.com",
+                config.password,
+                False,
+            ),
             id="bva_email_too_long",
         ),
         pytest.param(

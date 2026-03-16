@@ -1,15 +1,17 @@
 from __future__ import annotations
 
 from enum import Enum
-from playwright.sync_api import Locator, expect
-class ProjectCard:
 
+from playwright.sync_api import Locator, expect
+
+
+class ProjectCard:
     def __init__(self, card: Locator):
         self.card = card
-        self._link = card.locator('a')
-        self._title = card.locator('h3.text-gray-700')
-        self._test_count = card.locator('p.text-gray-500.text-sm')
-        self._badges = card.locator('.project-badges')
+        self._link = card.locator("a")
+        self._title = card.locator("h3.text-gray-700")
+        self._test_count = card.locator("p.text-gray-500.text-sm")
+        self._badges = card.locator(".project-badges")
 
     @property
     def title(self) -> str:
@@ -21,7 +23,7 @@ class ProjectCard:
 
     @property
     def href(self) -> str:
-        return self._link.get_attribute('href')
+        return self._link.get_attribute("href")
 
     def assert_has_badge(self, expected_badge: Badges) -> None:
         expect(self._badges).to_contain_text(expected_badge.value)

@@ -33,8 +33,12 @@ def test_login_with_invalid_creds(page: Page, config: Config):
 
     login_user(page, email=config.email, password=Faker().password(length=10))
 
-    expect(page.locator("#content-desktop").get_by_text("Invalid Email or password.")).to_be_visible()
-    expect(page.locator("#content-desktop .common-flash-info")).to_have_text("Invalid Email or password.")
+    expect(
+        page.locator("#content-desktop").get_by_text("Invalid Email or password.")
+    ).to_be_visible()
+    expect(page.locator("#content-desktop .common-flash-info")).to_have_text(
+        "Invalid Email or password."
+    )
 
 
 def test_search_project_in_company(page: Page, login):

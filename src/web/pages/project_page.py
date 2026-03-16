@@ -18,7 +18,9 @@ class ProjectPage:
         return self
 
     def assert_project_name(self, expected_project_name: str) -> Self:
-        expect(self.page.locator(".sticky-header h2")).to_have_text(expected_project_name, timeout=10000)
+        expect(self.page.locator(".sticky-header h2")).to_have_text(
+            expected_project_name, timeout=10000
+        )
         return self
 
     def close_read_me(self) -> Self:

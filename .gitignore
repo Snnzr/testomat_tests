@@ -3,7 +3,10 @@
 
 .env
 .venv
+.uv-bin
+.uv-venv
 test-result
 __pycache__/
 *.pyc
 .pytest_cache/
+/.python-version
