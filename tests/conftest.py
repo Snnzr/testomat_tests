@@ -1,31 +1,14 @@
-import os
-from dataclasses import dataclass
-
 import pytest
-from dotenv import load_dotenv
 from playwright.sync_api import Browser, BrowserContext, Page
 
-from src.web.Application import Application
-
-load_dotenv()
-
-
-@dataclass(frozen=True)
-class Config:
-    base_url: str
-    login_url: str
-    email: str
-    password: str
+from src.web.application import Application
+from tests.support.browser_state import reset_page_state
+from tests.support.config import Config, load_config
 
 
 @pytest.fixture(scope="session")
-def configs():
-    return Config(
-        base_url=os.getenv("BASE_URL"),
-        login_url=os.getenv("BASE_APP_URL"),
-        email=os.getenv("EMAIL"),
-        password=os.getenv("PASSWORD"),
-    )
+def config() -> Config:
+    return load_config()
 
 
 @pytest.fixture(scope="function")
@@ -43,21 +26,12 @@ def page(shared_page: Page) -> Page:
 
 
 @pytest.fixture(scope="function", autouse=True)
-def reset_shared_page_state(page: Page, configs: Config):
+def reset_shared_page_state(page: Page, config: Config):
     """
     Keep one reused page for the whole run, but reset browser state
     before each test to avoid cross-test contamination.
     """
-    page.context.clear_cookies()
-
-    urls = [configs.base_url, configs.login_url]
-    for url in urls:
-        if not url:
-            continue
-        page.goto(url, wait_until="domcontentloaded")
-        page.evaluate("() => { window.localStorage.clear(); window.sessionStorage.clear(); }")
-
-    page.goto("about:blank")
+    reset_page_state(page, config)
 
 
 @pytest.fixture(scope="session")
@@ -112,7 +86,7 @@ def shared_app(shared_page: Page) -> Application:
 
 
 @pytest.fixture(scope="function")
-def login(app: Application, configs: Config):
+def login(app: Application, config: Config):
     page = app.page
 
     for attempt in range(2):
@@ -125,7 +99,7 @@ def login(app: Application, configs: Config):
             app.login_page.open()
 
         if sign_in_form.first.is_visible(timeout=5000):
-            app.login_page.login(configs.email, configs.password)
+            app.login_page.login(config.email, config.password)
 
         app.projects_page.navigate()
         try:
@@ -136,25 +110,17 @@ def login(app: Application, configs: Config):
                 raise
 
             # Hard reset state before one final retry.
-            page.context.clear_cookies()
-            for url in (configs.base_url, configs.login_url):
-                if not url:
-                    continue
-                page.goto(url, wait_until="domcontentloaded")
-                page.evaluate(
-                    "() => { window.localStorage.clear(); window.sessionStorage.clear(); }"
-                )
-            page.goto("about:blank")
+            reset_page_state(page, config)
 
 
 @pytest.fixture(scope="session")
-def shared_login(shared_app: Application, configs: Config):
+def shared_login(shared_app: Application, config: Config):
     """
     One-time login for shared-page flows.
     Useful only when tests are designed to run with shared state.
     """
     shared_app.login_page.open()
-    shared_app.login_page.is_loaded()
-    shared_app.login_page.login(configs.email, configs.password)
+    shared_app.login_page.assert_loaded()
+    shared_app.login_page.login(config.email, config.password)
     shared_app.projects_page.navigate()
     shared_app.projects_page.verify_page_loaded()

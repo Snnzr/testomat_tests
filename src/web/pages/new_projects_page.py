@@ -2,7 +2,7 @@ from typing import Self
 
 from playwright.sync_api import expect, Page
 
-from src.web.pages.ProjectPage import ProjectPage
+from src.web.pages.project_page import ProjectPage
 
 
 class NewProjectsPage:
@@ -14,7 +14,7 @@ class NewProjectsPage:
         self.page.goto("/projects/new")
         return self
 
-    def is_loaded(self) -> Self:
+    def assert_loaded(self) -> Self:
         expect(self.__form_container).to_be_visible()
         expect(self.__form_container.locator("#classical")).to_be_visible()
         expect(self.__form_container.locator("#classical")).to_contain_text("Classical")

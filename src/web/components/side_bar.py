@@ -5,7 +5,7 @@ import re
 from playwright.sync_api import Page, expect
 
 
-class SideBar:
+class Sidebar:
     """Component for the main navigation side panel"""
 
     def __init__(self, page: Page):
@@ -33,7 +33,7 @@ class SideBar:
         self._help_link = page.get_by_role('link', name='Help')
         self._projects_link = page.get_by_role('link', name='Projects')
 
-    def is_loaded(self) -> SideBar:
+    def assert_loaded(self) -> Sidebar:
         expect(self._menu).to_be_visible()
         expect(self._logo).to_be_visible()
         expect(self._projects_link).to_be_visible()
@@ -41,55 +41,55 @@ class SideBar:
         return self
 
     # Navigation methods - Fluent interface
-    def go_to_tests(self) -> SideBar:
+    def go_to_tests(self) -> Sidebar:
         self._tests_link.click()
         return self
 
-    def go_to_runs(self) -> SideBar:
+    def go_to_runs(self) -> Sidebar:
         self._runs_link.click()
         return self
 
-    def go_to_plans(self) -> SideBar:
+    def go_to_plans(self) -> Sidebar:
         self._plans_link.click()
         return self
 
-    def go_to_steps(self) -> SideBar:
+    def go_to_steps(self) -> Sidebar:
         self._steps_link.click()
         return self
 
-    def go_to_pulse(self) -> SideBar:
+    def go_to_pulse(self) -> Sidebar:
         self._pulse_link.click()
         return self
 
-    def go_to_imports(self) -> SideBar:
+    def go_to_imports(self) -> Sidebar:
         self._imports_link.click()
         return self
 
-    def go_to_analytics(self) -> SideBar:
+    def go_to_analytics(self) -> Sidebar:
         self._analytics_link.click()
         return self
 
-    def go_to_branches(self) -> SideBar:
+    def go_to_branches(self) -> Sidebar:
         self._branches_link.click()
         return self
 
-    def go_to_settings(self) -> SideBar:
+    def go_to_settings(self) -> Sidebar:
         self._settings_link.click()
         return self
 
-    def go_to_help(self) -> SideBar:
+    def go_to_help(self) -> Sidebar:
         self._help_link.click()
         return self
 
-    def go_to_projects(self) -> SideBar:
+    def go_to_projects(self) -> Sidebar:
         self._projects_link.click()
         return self
 
-    def click_logo(self) -> SideBar:
+    def click_logo(self) -> Sidebar:
         self._logo.click()
         return self
 
-    def close_menu(self) -> SideBar:
+    def close_menu(self) -> Sidebar:
         self._close_button.click()
         return self
 
@@ -97,14 +97,14 @@ class SideBar:
         """Get user profile link by name"""
         return self.page.get_by_role('link', name=user_name)
 
-    def click_user_profile(self, user_name: str) -> SideBar:
+    def click_user_profile(self, user_name: str) -> Sidebar:
         self.get_user_profile_link(user_name).click()
         return self
 
     def link_by_name(self, name: str):
         return self._menu.get_by_role('link', name=name)
 
-    def expect_tab_active(self, name: str) -> SideBar:
+    def expect_tab_active(self, name: str) -> Sidebar:
         link = self.link_by_name(name)
         expect(link).to_be_visible()
         expect(link).to_have_class(re.compile(r"\bactive\b"))

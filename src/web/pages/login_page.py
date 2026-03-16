@@ -8,7 +8,7 @@ class LoginPage:
     def open(self):
         self.page.goto("/users/sign_in")
 
-    def is_loaded(self):
+    def assert_loaded(self):
         expect(self.page.locator("form#new_user:visible")).to_be_visible(timeout=10000)
 
     def login(self, email: str, password: str, remember_me: bool = False):
@@ -21,7 +21,7 @@ class LoginPage:
 
         password_input.press("Enter")
 
-    def invalid_login_message_visible(self):
+    def assert_invalid_login_message(self) -> None:
         invalid_text = self.page.get_by_text("Invalid Email or password.").first
         try:
             invalid_text.wait_for(state="visible", timeout=5000)

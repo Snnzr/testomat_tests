@@ -2,7 +2,7 @@ from .components import (
     ProjectCard,
     Badges,
     ProjectsPageHeader,
-    SideBar,
+    Sidebar,
 )
 from .pages import (
     HomePage,

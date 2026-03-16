@@ -2,8 +2,8 @@ from typing import List
 
 from playwright.sync_api import Page, TimeoutError, expect
 
-from src.web.components.ProjectCard import ProjectCard
-from src.web.components.ProjectsPageHeader import ProjectsPageHeader
+from src.web.components.project_card import ProjectCard
+from src.web.components.projects_page_header import ProjectsPageHeader
 
 
 class ProjectsPage:
@@ -33,7 +33,7 @@ class ProjectsPage:
         card = self._project_cards.filter(has=self.page.locator('h3', has_text=title)).first
         return ProjectCard(card)
 
-    def count_of_project_visible(self, expected_count: int):
+    def assert_project_count(self, expected_count: int) -> None:
         return expect(self._project_cards.filter(visible=True)).to_have_count(expected_count)
 
     def get_total_projects(self) -> int:
@@ -59,7 +59,7 @@ class ProjectsPage:
     def get_demo_projects(self) -> List[ProjectCard]:
         return [project for project in self.get_projects() if project.is_demo_project()]
 
-    def is_loaded(self):
+    def assert_signed_in(self) -> None:
         expect(self.page.locator(".common-flash-success")).to_be_visible()
         expect(self.page.locator(".common-flash-success")).to_have_text("Signed in successfully")
 

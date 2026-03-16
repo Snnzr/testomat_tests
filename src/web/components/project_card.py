@@ -1,15 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import TYPE_CHECKING
-
 from playwright.sync_api import Locator, expect
-
-if TYPE_CHECKING:
-    pass
-
-
-# ai generated
 class ProjectCard:
 
     def __init__(self, card: Locator):
@@ -17,7 +9,6 @@ class ProjectCard:
         self._link = card.locator('a')
         self._title = card.locator('h3.text-gray-700')
         self._test_count = card.locator('p.text-gray-500.text-sm')
-        self._avatars = card.locator('img.rounded-full')
         self._badges = card.locator('.project-badges')
 
     @property
@@ -32,14 +23,20 @@ class ProjectCard:
     def href(self) -> str:
         return self._link.get_attribute('href')
 
-    def badges_has(self, expected_badge: Badges):
+    def assert_has_badge(self, expected_badge: Badges) -> None:
         expect(self._badges).to_contain_text(expected_badge.value)
 
-    def click(self):
+    def has_badge(self, expected_badge: Badges) -> bool:
+        return expected_badge.value in (self._badges.text_content() or "")
+
+    def is_demo_project(self) -> bool:
+        return self.has_badge(Badges.DEMO)
+
+    def click(self) -> None:
         self._link.click()
 
 
 class Badges(Enum):
-    Demo = "Demo"
-    Classical = "Classical"
-    Pytest = "Pytest"
+    DEMO = "Demo"
+    CLASSICAL = "Classical"
+    PYTEST = "Pytest"
