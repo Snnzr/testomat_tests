@@ -2,6 +2,8 @@ from urllib.parse import urlparse
 
 from playwright.sync_api import Page
 
+from src.web.components.test_for_suite_popup import TestForSuitePopup
+from src.web.components.test_modal import TestModal
 from src.web.pages.home_page import HomePage
 from src.web.pages.login_page import LoginPage
 from src.web.pages.new_projects_page import NewProjectsPage
@@ -17,6 +19,8 @@ class Application:
         self.projects_page = ProjectsPage(page)
         self.new_projects_page = NewProjectsPage(page)
         self.project_page = ProjectPage(page)
+        self.test_for_suite_popup = TestForSuitePopup(page)
+        self.test_modal = TestModal(page)
 
     def clear_cookies_and_local_storage(self):
         """

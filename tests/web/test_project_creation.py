@@ -9,13 +9,15 @@ def test_new_project_creation(page: Page, login, app: Application):
     app.projects_page.header.click_create()
 
     (
-        app.new_projects_page.assert_loaded()
+        app.new_projects_page
+        .assert_loaded()
         .fill_project_title(target_project_name)
         .click_create()
     )
 
     (
-        app.project_page.assert_loaded()
+        app.project_page
+        .assert_loaded()
         .assert_project_name(target_project_name)
         .close_read_me()
     )

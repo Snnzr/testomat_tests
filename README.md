@@ -11,6 +11,7 @@ UI end-to-end test suite for Testomat built with `pytest` and Playwright.
 - `pytest-playwright`
 - `python-dotenv`
 - `faker`
+- `httpx`
 - `ruff`
 
 ## Project Structure
@@ -18,12 +19,15 @@ UI end-to-end test suite for Testomat built with `pytest` and Playwright.
 ```text
 testomat_tests/
 |-- src/
+|   |-- api/
 |   |-- web/
 |   |   |-- application.py
 |   |   |-- components/
 |   |   `-- pages/
 |   `-- data_type_experiments/
 |-- tests/
+|   |-- api/
+|   |-- fixtures/
 |   |-- support/
 |   |-- web/
 |   |-- conftest.py
@@ -43,6 +47,7 @@ BASE_URL=
 BASE_APP_URL=
 EMAIL=
 PASSWORD=
+TESTOMAT_TOKEN=
 ```
 
 ## Setup
@@ -91,6 +96,7 @@ uv run ruff format .
 - Test discovery is configured in [pytest.ini](C:/Users/snihu/PycharmProjects/testomat_tests/pytest.ini).
 - The suite currently runs in headed mode by default via `pytest.ini`.
 - Shared fixtures live in [tests/conftest.py](C:/Users/snihu/PycharmProjects/testomat_tests/tests/conftest.py).
+- Remote-adapted fixtures live in [tests/fixtures](C:/Users/snihu/PycharmProjects/testomat_tests/tests/fixtures).
 - Shared non-fixture test helpers live in [tests/support](C:/Users/snihu/PycharmProjects/testomat_tests/tests/support).
 
 ## Verification
